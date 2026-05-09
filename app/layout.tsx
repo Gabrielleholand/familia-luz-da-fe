@@ -65,6 +65,18 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KFWMD8L2LX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KFWMD8L2LX');
+          `}
+        </Script>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
