@@ -88,7 +88,46 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "wo6z65xj8h");
           `}
         </Script>
+{/* UTM Transfer Script */}
+        <Script id="utm-transfer" strategy="afterInteractive">
+          {`
+            (function() {
+              function getUTMParams() {
+                var params = {};
+                var search = window.location.search;
+                if (!search) return params;
+                var pairs = search.slice(1).split('&');
+                pairs.forEach(function(pair) {
+                  var kv = pair.split('=');
+                  if (kv[0].indexOf('utm_') === 0) {
+                    params[kv[0]] = decodeURIComponent(kv[1] || '');
+                  }
+                });
+                return params;
+              }
 
+              function appendUTMsToLinks() {
+                var utms = getUTMParams();
+                if (Object.keys(utms).length === 0) return;
+                var query = Object.keys(utms)
+                  .map(function(k) { return k + '=' + encodeURIComponent(utms[k]); })
+                  .join('&');
+                var links = document.querySelectorAll('a[href*="hotmart.com"]');
+                links.forEach(function(link) {
+                  var href = link.getAttribute('href');
+                  var separator = href.indexOf('?') !== -1 ? '&' : '?';
+                  link.setAttribute('href', href + separator + query);
+                });
+              }
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', appendUTMsToLinks);
+              } else {
+                appendUTMsToLinks();
+              }
+            })();
+          `}
+        </Script>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
 
