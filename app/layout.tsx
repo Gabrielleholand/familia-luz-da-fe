@@ -9,14 +9,12 @@ const cinzel = Cinzel({
   variable: '--font-cinzel',
   display: 'swap',
 })
-
 const cinzelDecorative = Cinzel_Decorative({ 
   subsets: ['latin'],
   weight: ['400', '700', '900'],
   variable: '--font-cinzel-decorative',
   display: 'swap',
 })
-
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin'],
   variable: '--font-eb-garamond',
@@ -40,7 +38,8 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cinzelDecorative.variable} ${ebGaramond.variable} bg-navy scroll-smooth`}
     >
       <body className="font-body antialiased">
-        {/* Meta Pixel Code */}
+
+        {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="beforeInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -64,7 +63,8 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {/* End Meta Pixel Code */}
+
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HXV91N2Q0D"
           strategy="afterInteractive"
@@ -77,8 +77,21 @@ export default function RootLayout({
             gtag('config', 'G-HXV91N2Q0D');
           `}
         </Script>
+
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "wo6z65xj8h");
+          `}
+        </Script>
+
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+
       </body>
     </html>
   )
