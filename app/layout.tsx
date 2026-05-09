@@ -1,0 +1,73 @@
+import type { Metadata } from 'next'
+import { Cinzel, Cinzel_Decorative, EB_Garamond } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
+import './globals.css'
+
+const cinzel = Cinzel({ 
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  display: 'swap',
+})
+
+const cinzelDecorative = Cinzel_Decorative({ 
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  variable: '--font-cinzel-decorative',
+  display: 'swap',
+})
+
+const ebGaramond = EB_Garamond({ 
+  subsets: ['latin'],
+  variable: '--font-eb-garamond',
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: 'Família à Luz da Fé | Coleção de Ebooks de Formação Católica',
+  description: 'Uma coleção de 3 ebooks de formação parental enraizada na sabedoria católica — com orientações práticas para o dia a dia.',
+  keywords: ['educação católica', 'formação parental', 'ebooks', 'obediência', 'birras', 'crianças'],
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html 
+      lang="pt" 
+      className={`${cinzel.variable} ${cinzelDecorative.variable} ${ebGaramond.variable} bg-navy scroll-smooth`}
+    >
+      <body className="font-body antialiased">
+        {/* Meta Pixel Code */}
+        <Script id="meta-pixel" strategy="beforeInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '5431969973535179');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img 
+            height="1" 
+            width="1" 
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=5431969973535179&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {/* End Meta Pixel Code */}
+        {children}
+        {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+    </html>
+  )
+}
