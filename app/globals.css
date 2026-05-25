@@ -1,0 +1,182 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* ==========================================
+   FAMÍLIA À LUZ DA FÉ - IDENTIDADE VISUAL
+   ========================================== */
+
+:root {
+  /* Paleta de Cores Principal */
+  --navy: #0D1B3E;
+  --navy-dark: #060D1F;
+  --cream: #F7EED8;
+  --gold: #C9A84C;
+  --gold-dark: #A0742A;
+  --text-light: #F5E4C0;
+  --text-dark: #2C2C2C;
+  
+  /* Cores dos Ebooks */
+  --burgundy: #5A0F0F;
+  --forest: #0D2B1A;
+  
+  /* Fontes */
+  --font-title: var(--font-cinzel-decorative), 'Cinzel Decorative', serif;
+  --font-subtitle: var(--font-eb-garamond), 'EB Garamond', serif;
+  --font-label: var(--font-cinzel), 'Cinzel', serif;
+  
+  /* Radius */
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-eb-garamond), 'EB Garamond', serif;
+  --font-body: var(--font-eb-garamond), 'EB Garamond', serif;
+  --font-title: var(--font-cinzel-decorative), 'Cinzel Decorative', serif;
+  --font-label: var(--font-cinzel), 'Cinzel', serif;
+  
+  --color-navy: #0D1B3E;
+  --color-navy-dark: #060D1F;
+  --color-cream: #F7EED8;
+  --color-gold: #C9A84C;
+  --color-gold-dark: #A0742A;
+  --color-text-light: #F5E4C0;
+  --color-text-dark: #2C2C2C;
+  --color-burgundy: #5A0F0F;
+  --color-forest: #0D2B1A;
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+
+@layer base {
+  * {
+    @apply border-gold/20;
+  }
+  
+  body {
+    @apply bg-navy text-text-light;
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--font-title);
+  }
+  
+  ::selection {
+    @apply bg-gold/30 text-text-light;
+  }
+}
+
+/* ==========================================
+   CUSTOM UTILITIES
+   ========================================== */
+
+@layer utilities {
+  .font-title {
+    font-family: var(--font-title);
+  }
+  
+  .font-body {
+    font-family: var(--font-subtitle);
+  }
+  
+  .font-label {
+    font-family: var(--font-label);
+  }
+  
+  /* Ornamento dourado */
+  .ornament::before {
+    content: '✦';
+    @apply text-gold mx-2;
+  }
+  
+  .ornament::after {
+    content: '✦';
+    @apply text-gold mx-2;
+  }
+  
+  /* Animações de entrada */
+  .fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hover para botões */
+  .btn-gold-hover {
+    @apply relative overflow-hidden;
+  }
+  
+  .btn-gold-hover::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
+    transition: transform 0.6s ease;
+  }
+  
+  .btn-gold-hover:hover::before {
+    @apply translate-x-full;
+  }
+  
+  /* Linha decorativa */
+  .decorative-line {
+    @apply h-px bg-gradient-to-r from-transparent via-gold-dark to-transparent;
+  }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito de perspectiva nos ebooks */
+.ebook-perspective {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.ebook-card {
+  transition: transform 0.5s ease;
+}
+
+.ebook-card:hover {
+  transform: translateY(-10px) rotateY(-5deg);
+}
+
+/* Sombra elegante */
+.shadow-elegant {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(201, 168, 76, 0.1);
+}
+
+/* Card central destacado */
+.card-featured {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .card-featured {
+    transform: scale(1);
+  }
+}
