@@ -44,7 +44,7 @@ export function EbooksSection() {
                 <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/OBEDI%C3%8ANCIA%20%2810%29-hwglSilF6ptxom5QMhtQUuewp2x1rF.png" alt="Ebook 1" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-transparent" />
               </div>
-              <div className="p-6 sm:p-8 flex flex-col h-full -mt-16 relative z-10">
+             <div className="p-6 sm:p-8 flex flex-col -mt-16 relative z-10" style={{ minHeight: '400px' }}>
                 <p className="font-label text-gold text-xs tracking-widest mb-3">EBOOK I</p>
                 <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">Obediência</h3>
                 <p className="font-body text-text-light/70 italic mb-6">A arte de dizer não com amor</p>
@@ -55,7 +55,7 @@ export function EbooksSection() {
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">Como recuperar a autoridade perdida</span></li>
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">Exemplos reais com script pronto a usar</span></li>
                 </ul>
-                <div className="mt-auto">
+                <div className="mt-6 pt-4 border-t border-gold/20">
                   <p className="font-title text-2xl sm:text-3xl text-gold mb-4">€9,90</p>
                   <a href={LINK1} className={CN}>Adquirir</a>
                 </div>
