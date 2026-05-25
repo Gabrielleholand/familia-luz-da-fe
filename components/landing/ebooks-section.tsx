@@ -9,6 +9,8 @@ const LINK2 = 'https://pay.hotmart.com/N105698109J'
 const LINK3 = 'https://pay.hotmart.com/E105698185I'
 const CN = 'block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover border border-gold text-gold hover:bg-gold/10'
 const CF = 'block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover bg-gold text-navy hover:bg-gold-dark'
+const INNER = 'p-6 sm:p-8 flex flex-col -mt-16 relative z-10'
+const INNER_STYLE = { minHeight: '500px' }
 
 export function EbooksSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -44,7 +46,7 @@ export function EbooksSection() {
                 <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/OBEDI%C3%8ANCIA%20%2810%29-hwglSilF6ptxom5QMhtQUuewp2x1rF.png" alt="Ebook 1" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-transparent" />
               </div>
-             <div className="p-6 sm:p-8 flex flex-col -mt-16 relative z-10" style={{ minHeight: '400px' }}>
+              <div className={INNER} style={INNER_STYLE}>
                 <p className="font-label text-gold text-xs tracking-widest mb-3">EBOOK I</p>
                 <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">Obediência</h3>
                 <p className="font-body text-text-light/70 italic mb-6">A arte de dizer não com amor</p>
@@ -69,7 +71,7 @@ export function EbooksSection() {
                 <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/OBEDI%C3%8ANCIA%20%2811%29-xnNIBSq7qh9dyoU7xslwiiJtkv9aQC.png" alt="Ebook 2" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-transparent" />
               </div>
-              <div className="p-6 sm:p-8 flex flex-col h-full -mt-16 relative z-10">
+              <div className={INNER} style={INNER_STYLE}>
                 <p className="font-label text-gold text-xs tracking-widest mb-3">EBOOK II</p>
                 <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">5 Dicas para os Filhos te Escutarem</h3>
                 <p className="font-body text-text-light/70 italic mb-6">Como a tua palavra chega de verdade</p>
@@ -80,7 +82,7 @@ export function EbooksSection() {
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">Comandos curtos, específicos e afirmativos</span></li>
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">O elogio técnico que multiplica o bem</span></li>
                 </ul>
-                <div className="mt-auto">
+                <div className="mt-6 pt-4 border-t border-gold/20">
                   <p className="font-title text-2xl sm:text-3xl text-gold mb-4">€9,90</p>
                   <a href={LINK2} className={CF}>Adquirir</a>
                 </div>
@@ -94,7 +96,7 @@ export function EbooksSection() {
                 <Image src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/OBEDI%C3%8ANCIA%20%2812%29-VnGgnOBiPMKyziTsmDyLXtzphY0nDd.png" alt="Ebook 3" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-transparent" />
               </div>
-              <div className="p-6 sm:p-8 flex flex-col h-full -mt-16 relative z-10">
+              <div className={INNER} style={INNER_STYLE}>
                 <p className="font-label text-gold text-xs tracking-widest mb-3">EBOOK III</p>
                 <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">Como Lidar com a Fase das Birras</h3>
                 <p className="font-body text-text-light/70 italic mb-6">O terrible two à luz da fé</p>
@@ -105,7 +107,7 @@ export function EbooksSection() {
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">Morder, bater e jogar comida: protocolos</span></li>
                   <li className="flex items-start gap-3"><Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} /><span className="font-body text-text-light/90 text-sm leading-relaxed">Linha de base estável — ser um farol</span></li>
                 </ul>
-                <div className="mt-auto">
+                <div className="mt-6 pt-4 border-t border-gold/20">
                   <p className="font-title text-2xl sm:text-3xl text-gold mb-4">€9,90</p>
                   <a href={LINK3} className={CN}>Adquirir</a>
                 </div>
