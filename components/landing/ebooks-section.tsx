@@ -125,9 +125,9 @@ export function EbooksSection() {
                   <div className="mt-auto">
                     <p className="font-title text-2xl sm:text-3xl text-gold mb-4">{ebook.price}</p>
                     
-                      href={ebook.link}
-                      className={`block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover ${ebook.featured ? 'bg-gold text-navy hover:bg-gold-dark' : 'border border-gold text-gold hover:bg-gold/10'}`}
-                    >
+                    href={ebook.link}
+className={`block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover ${ebook.featured ? 'bg-gold text-navy hover:bg-gold-dark' : 'border border-gold text-gold hover:bg-gold/10'}`}
+>
                       Adquirir
                     </a>
                   </div>
