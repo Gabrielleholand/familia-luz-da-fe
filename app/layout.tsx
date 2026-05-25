@@ -88,7 +88,8 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "wo6z65xj8h");
           `}
         </Script>
-{/* UTM Transfer Script */}
+
+        {/* UTM Transfer Script */}
         <Script id="utm-transfer" strategy="afterInteractive">
           {`
             (function() {
@@ -105,7 +106,6 @@ export default function RootLayout({
                 });
                 return params;
               }
-
               function appendUTMsToLinks() {
                 var utms = getUTMParams();
                 if (Object.keys(utms).length === 0) return;
@@ -119,7 +119,6 @@ export default function RootLayout({
                   link.setAttribute('href', href + separator + query);
                 });
               }
-
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', appendUTMsToLinks);
               } else {
@@ -128,6 +127,7 @@ export default function RootLayout({
             })();
           `}
         </Script>
+
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
 
