@@ -82,7 +82,6 @@ export function EbooksSection() {
   return (
     <section id="ebooks" ref={sectionRef} className="bg-navy py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Title */}
         <div className="text-center mb-14 sm:mb-20">
           <h2 className="font-title text-3xl sm:text-4xl md:text-5xl text-text-light inline-flex items-center gap-4">
             <span className="text-gold text-2xl">✦</span>
@@ -91,22 +90,14 @@ export function EbooksSection() {
           </h2>
         </div>
 
-        {/* Ebook Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-4 items-stretch">
           {ebooks.map((ebook, index) => (
             <div
               key={ebook.label}
-              className={`
-                ebook-card-item animate-on-scroll
-                ${ebook.featured ? 'lg:card-featured' : ''}
-              `}
+              className={`ebook-card-item animate-on-scroll ${ebook.featured ? 'lg:card-featured' : ''}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className={`
-                relative bg-navy-dark border border-gold/20 rounded-sm overflow-hidden h-full
-                ${ebook.featured ? 'ring-2 ring-gold/50' : ''}
-              `}>
-                {/* Ebook Cover Image */}
+              <div className={`relative bg-navy-dark border border-gold/20 rounded-sm overflow-hidden h-full ${ebook.featured ? 'ring-2 ring-gold/50' : ''}`}>
                 <div className="relative w-full aspect-[3/4] max-h-64 overflow-hidden">
                   <Image
                     src={ebook.image}
@@ -117,54 +108,25 @@ export function EbooksSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-transparent" />
                 </div>
-                
+
                 <div className="p-6 sm:p-8 flex flex-col h-full -mt-16 relative z-10">
-                  {/* Label */}
-                  <p className="font-label text-gold text-xs tracking-widest mb-3">
-                    {ebook.label}
-                  </p>
-                  
-                  {/* Title */}
-                  <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">
-                    {ebook.title}
-                  </h3>
-                  
-                  {/* Subtitle */}
-                  <p className="font-body text-text-light/70 italic mb-6">
-                    {ebook.subtitle}
-                  </p>
-                  
-                  {/* Decorative Line */}
+                  <p className="font-label text-gold text-xs tracking-widest mb-3">{ebook.label}</p>
+                  <h3 className="font-title text-xl sm:text-2xl text-text-light mb-2 leading-tight">{ebook.title}</h3>
+                  <p className="font-body text-text-light/70 italic mb-6">{ebook.subtitle}</p>
                   <div className="h-px bg-gold/30 mb-6" />
-                  
-                  {/* Topics */}
                   <ul className="space-y-3 mb-8 flex-grow">
                     {ebook.topics.map((topic, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" strokeWidth={2} />
-                        <span className="font-body text-text-light/90 text-sm sm:text-base leading-relaxed">
-                          {topic}
-                        </span>
+                        <span className="font-body text-text-light/90 text-sm sm:text-base leading-relaxed">{topic}</span>
                       </li>
                     ))}
                   </ul>
-                  
-                  {/* Price & CTA */}
                   <div className="mt-auto">
-                    <p className="font-title text-2xl sm:text-3xl text-gold mb-4">
-                      {ebook.price}
-                    </p>
-                    <a
+                    <p className="font-title text-2xl sm:text-3xl text-gold mb-4">{ebook.price}</p>
+                    
                       href={ebook.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`
-                        block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover
-                        ${ebook.featured 
-                          ? 'bg-gold text-navy hover:bg-gold-dark' 
-                          : 'border border-gold text-gold hover:bg-gold/10'
-                        }
-                      `}
+                      className={`block w-full font-label text-sm tracking-wider uppercase text-center py-3.5 transition-all btn-gold-hover ${ebook.featured ? 'bg-gold text-navy hover:bg-gold-dark' : 'border border-gold text-gold hover:bg-gold/10'}`}
                     >
                       Adquirir
                     </a>
